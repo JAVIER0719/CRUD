@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Add product
+        </title>
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/flatly/bootstrap.min.css"
+          integrity="sha384-qF/QmIAj5ZaYFAeQcrQ6bfVMAh4zZlrGwTPY7T/M+iTTLJqJBJjwwnsE5Y0mV7QK"
+          crossorigin="anonymous"
+        />
+
+    </head>
+
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+              <div class="container-fluid">
+                <a class="navbar-brand" href="#">CRUD</a>
+              </div>
+            </nav>
+          </header>
+          <div class="row mt-4">
+            <div class="col-lg-4 offset-lg-4">
+          <div class="card text-white bg-primary mb-3 mt-4" style="max-width: 25rem;">
+        <div class="card-header">Add</div>
+          <div class="card-body">
+          
+            <form id="updateForm" method="post" action="/adding">
+                <input type="hidden"name="id" placeholder="add name">
+                <input type="text" class="form-control" name="name" placeholder="add name">
+                <input type="text" class="form-control mt-2" name="description" placeholder="add description">
+                <input type="number" class="form-control mt-2" name="price" placeholder="add price">
+                <input type="number" class="form-control mt-2" name="stock" placeholder="add stock">
+             
+                <div class="row mt-2 text-center">
+                    <div class="col-lg-6">
+                       <button type="button" class="btn btn-danger" onclick="window.location.href='/'">Retry</button>
+                    </div>
+                    <div class="col-lg-6">
+                        <button type="button" class="btn btn-warning" onclick="updateData();">Add</button>
+                    </div>
+                  </div>
+     
+               <script>
+                document.getElementById('updateForm')
+                .addEventListener('submit', e=>{
+                    e.preventDefault()
+    
+                })
+                  function updateData() {
+      
+            var form = document.getElementById('updateForm');
+                form.action = '/adding';
+
+                form.submit();
+}
+
+               </script>
+
+            </form>
+    
+          </div>
+        </div> 
+            </div>
+          </div>
+    </div>
+    </body>
+</html>

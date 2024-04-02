@@ -1,0 +1,97 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>crud</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/flatly/bootstrap.min.css"
+      integrity="sha384-qF/QmIAj5ZaYFAeQcrQ6bfVMAh4zZlrGwTPY7T/M+iTTLJqJBJjwwnsE5Y0mV7QK"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">CRUD</a>
+        </div>
+      </nav>
+    </header>
+    <div class="row mt-4">
+      <div class="col-lg-6 offset-lg-3">
+        <div class="location-button">
+          <button
+            type="button"
+            id="add-modal"
+            class="btn btn-success"
+            data-bs-toggle="modal"
+            data-bs-target="#myModal"
+            onclick="window.location.href='/add'"
+          >
+            Add product
+          </button>
+        </div>
+
+        <table class="table mt-4 text-center">
+          <thead>
+            <tr class="table-primary">
+              <th>ID</th>
+              <th>NAME</th>
+              <th>DESCRIPTION</th>
+              <th>PRICE</th>
+              <th>STOCK</th>
+              <th>ACTION</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if (result.length > 0) { %> <% result.forEach(product => { %>
+            <tr class="table-light">
+              <td><%= product.id %></td>
+              <td><%= product.name %></td>
+              <td><%= product.description %></td>
+              <td><%= product.price %></td>
+              <td><%= product.stock %></td>
+              <td>
+                <button
+                  type="button"
+                  class="btn btn-warning btn-sm"
+                  onclick="window.location.href='/update/<%= product.id %>'"
+                >
+                  Update
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-danger btn-sm"
+                  onclick="window.location.href='/delete/<%= product.id %>'"
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+            <% }); %> <% } else { %>
+            <tr>
+              <td colspan="6" class="text-center">No products found</td>
+            </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-rnn9pxFTfXp4Y56jZDp1np9zXT66Zl10TLMbOqKd1f7plKkMjTMDTqjH27d4Pqj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha384-q2e5te7aWkEpsU4qFuJh47PrrO3M6H/6eLW/eI00j7c8nEIdlF/3FexAdKqhN5H3"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-rv+JG5XvvqPDSQMywo2kgp1g4/YQ4q7plP1PUX6zvnb40gT+PzNHG8NoiCNy9S+W"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
